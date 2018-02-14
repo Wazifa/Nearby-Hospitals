@@ -1,6 +1,6 @@
 window.onload = function() 
 {
-    L.mapquest.key = 'YOUR_API_KEY';      
+    L.mapquest.key = 'lYrP4vF3Uk5zgTiGGuEzQGwGIVDGuy24';      
     
     var addressObject={};
     var map, directionsLayer, narrativeControl, restAreas, myIcon, customIcon;
@@ -100,6 +100,8 @@ window.onload = function()
         function createPlaceInfo(result)
         {
             const ulList = document.getElementById('sideList');
+            //const list = document.createElement('li');
+            
             const li = document.createElement('a');
             li.classList = "list-group-item";
             li.setAttribute("style", "background-color:cadetblue;");
@@ -107,6 +109,9 @@ window.onload = function()
             li.style.textAlign = 'left';
             li.innerHTML = "<strong>" + result.name + " </strong>";
        
+            li.href = "#";
+            
+            ulList.appendChild(li);
                     
             li.onclick = function()
             {          
@@ -144,7 +149,6 @@ window.onload = function()
                 }
             }
 
-            ulList.appendChild(li);
         }
      
     }
