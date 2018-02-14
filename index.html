@@ -24,6 +24,8 @@
 
     <body style="border: 0; margin: 0;">
       
+        
+        <div id="alert" role="alert"></div>
         <div id="wrapper">
 
           <!-- Sidebar -->
@@ -31,13 +33,58 @@
 
             <div id="sidebar-wrapper">
             
-                <ul id="sideList" class="sidebar-nav"></ul>
+                 <ul class="sidebar-nav" style="margin-top: 5%";>
+ 
+                    <h4 style="color: white; text-align: center;">Select a category</h4>
+                    <div class="col-xs-3" style="text-align: center;">
+                        <select class="selectpicker form-control"  id="category" onchange="options[selectedIndex].value">
+                            <option value="806202">Hospitals</option>
+                            <option value="801101">Doctors</option>
+                            <option value="802101">Dentists</option>
+                            <option value="591205">Pharmacies</option>
+                       
+                        </select>
+            
+                    </div>
+                    <br>
+                    <div class="col-xs-3">
+                        <h4 style="color: white; text-align: center;">Radius (in miles)</h4>
+                        <select class="selectpicker form-control" id="radius">
+                          
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            
+                        </select>
+            
+                    </div>
+
+                <div id="insideList" style="margin-top: 5%";></div>     
+                </ul>
             </div>
 
             <!-- Page Content --> 
             <div id="map"></div>
   
         </div>
-    
+    <script>
+        
+         $("#wrapper").toggleClass("toggled");
+        
+        document.getElementById("radius").addEventListener("change", function(evt){
+            fillMap();
+        });
+        
+        document.getElementById("category").addEventListener("change", function(evt){
+            fillMap();
+        });
+       
+    </script>
     </body>
 </html>
